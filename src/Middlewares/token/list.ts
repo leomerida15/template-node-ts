@@ -1,1 +1,3 @@
-export default ['farm'];
+const list: Array<any> = [''];
+
+export default list;
