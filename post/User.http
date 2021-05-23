@@ -1,0 +1,23 @@
+###
+GET http://localhost:5050/user
+
+###
+POST http://localhost:5050/user
+Content-Type: application/json
+
+{
+    "firstname":"leo",
+    "lastname":"merida"
+}
+
+###
+PATCH http://localhost:5050/user/20
+Content-Type: application/json
+
+{
+    "firstname":"leo aaa",
+    "lastname":"merida aaa"
+}
+
+###
+DELETE http://localhost:5050/user/1
