@@ -16,7 +16,7 @@ app.use(express_1.default.json());
 // Routes
 routes_1.default(app);
 // meddleware posRutes
-Middlewares_1.posRutes(app);
+Middlewares_1.posRoutes(app);
 // Settings
 app.set('port', process.env.PORT || 5050);
 exports.default = app;

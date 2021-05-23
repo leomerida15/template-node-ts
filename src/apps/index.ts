@@ -1,6 +1,6 @@
 // Modules
 import express, { Application, Request, Response } from 'express';
-import { posRutes, preRoutes } from '../Middlewares';
+import { posRoutes, preRoutes } from '../Middlewares';
 import Routes from '../routes';
 
 const app: Application = express();
@@ -16,7 +16,7 @@ app.use(express.json());
 Routes(app);
 
 // meddleware posRutes
-posRutes(app);
+posRoutes(app);
 
 // Settings
 app.set('port', process.env.PORT || 5050);
