@@ -10,6 +10,7 @@ const token_1 = __importDefault(require("./token"));
 const secure_1 = __importDefault(require("./secure"));
 const err_image_1 = require("./upload/err_image");
 const upload_1 = require("./upload");
+const static_1 = __importDefault(require("./static"));
 /** Middleware PreRoutes */
 const preRoutes = (app) => {
     app.use(secure_1.default);
@@ -20,6 +21,7 @@ const preRoutes = (app) => {
 exports.preRoutes = preRoutes;
 /** Middleware PostRoutes */
 const posRoutes = (app) => {
+    app.use(static_1.default);
     app.use(err_image_1.file_files_err);
     app.use(err_1.default);
     app.use(err_404_1.default);
