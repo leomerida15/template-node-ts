@@ -11,6 +11,6 @@ const storage = multer_1.default.diskStorage({
     destination: path_1.default.resolve('uploads'),
     filename: (req, file, cb) => cb(null, file.originalname.replace(/ /gi, '_')),
 });
-exports.upload = multer_1.default({ storage }).single('image');
-exports.uploads = multer_1.default({ storage }).array('images', 8);
+exports.upload = (0, multer_1.default)({ storage }).single('image');
+exports.uploads = (0, multer_1.default)({ storage }).array('images', 8);
 //# sourceMappingURL=index.js.map

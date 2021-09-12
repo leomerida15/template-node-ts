@@ -13,5 +13,5 @@ const corsOptions = {
     methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
     origin,
 };
-exports.default = cors_1.default(corsOptions);
+exports.default = (0, cors_1.default)(corsOptions);
 //# sourceMappingURL=index.js.map

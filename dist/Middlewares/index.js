@@ -9,14 +9,11 @@ const err_404_1 = __importDefault(require("./err/err_404"));
 const token_1 = __importDefault(require("./token"));
 const secure_1 = __importDefault(require("./secure"));
 const err_image_1 = require("./upload/err_image");
-const upload_1 = require("./upload");
 const static_1 = __importDefault(require("./static"));
 /** Middleware PreRoutes */
 const preRoutes = (app) => {
     app.use(secure_1.default);
     app.use(token_1.default);
-    app.use(upload_1.upload);
-    app.use(upload_1.uploads);
 };
 exports.preRoutes = preRoutes;
 /** Middleware PostRoutes */

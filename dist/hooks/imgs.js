@@ -20,18 +20,18 @@ const svg_png_converter_1 = require("svg-png-converter");
 const base = path_1.default.resolve('static');
 //
 const ImgSvgToPng = (preType, type, file, folder) => __awaiter(void 0, void 0, void 0, function* () {
-    const id = exports.ImgID(file);
+    const id = (0, exports.ImgID)(file);
     const route = `${base}/${folder ? folder + '/' : ''}${id}`;
     //
     const input = yield promises_1.default.readFile(route);
     const config = { input, encoding: 'buffer', format: type };
-    const outputBuffer = yield svg_png_converter_1.svg2png(config);
+    const outputBuffer = yield (0, svg_png_converter_1.svg2png)(config);
     //
     yield promises_1.default.writeFile(id.replace(preType, '.png'), outputBuffer);
     //
     yield promises_1.default.rename(`${path_1.default.resolve()}/${id.replace(preType, '.png')}`, `${base}/${folder}/${id.replace(preType, '.png')}`);
     //
-    yield exports.ImgDelete(id, folder);
+    yield (0, exports.ImgDelete)(id, folder);
     return `${host_1.host}static/${folder ? folder + '/' : ''}${id.replace(preType, '.png')}`;
 });
 exports.ImgSvgToPng = ImgSvgToPng;
@@ -61,9 +61,9 @@ const ImgRoute = (file, folder) => {
 exports.ImgRoute = ImgRoute;
 //
 const ImgMoveRoute = (file, folder) => __awaiter(void 0, void 0, void 0, function* () {
-    const resp = exports.ImgRoute(file, folder);
-    const id = exports.ImgID(resp);
-    yield exports.ImgMove(id, folder);
+    const resp = (0, exports.ImgRoute)(file, folder);
+    const id = (0, exports.ImgID)(resp);
+    yield (0, exports.ImgMove)(id, folder);
     return resp;
 });
 exports.ImgMoveRoute = ImgMoveRoute;
