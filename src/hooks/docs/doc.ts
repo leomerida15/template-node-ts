@@ -27,7 +27,7 @@ export const ToFile: any = async (file: string | string[], title: string): Promi
 	return id;
 };
 //
-export const fileExistin = async (folder: string) => {
+export const Existin = async (folder: string) => {
 	try {
 		await fs.lstat(`${base}/${folder}`);
 	} catch (err) {
@@ -42,7 +42,7 @@ export const base64ToFile = async (file: string, title: string, folder?: string)
 
 	const URL: string = await (async () => {
 		if (folder) {
-			await fileExistin(folder);
+			await Existin(folder);
 			return path.join(base, folder, id);
 		} else {
 			return path.join(base, id);
@@ -59,14 +59,14 @@ export const ID = (file: string) => file.split('/')[file.split('/').length - 1];
 export const IDs = (files: string[]) => files.map((file: string) => file.split('/')[file.split('/').length - 1]);
 //
 export const Move = async (file: string, folder: string) => {
-	if (folder) await fileExistin(folder);
+	if (folder) await Existin(folder);
 
 	await fs.rename(path.join(base, file), path.join(base, folder, file));
 	return `${host}/${folder}/${file}`;
 };
 //
 export const Moves = async (files: string[], folder: string) => {
-	if (folder) await fileExistin(folder);
+	if (folder) await Existin(folder);
 
 	const resp: any = files.map(
 		async (file: string) => await fs.rename(`${base}/${file}`, `${base}/${folder}/${file}`),
